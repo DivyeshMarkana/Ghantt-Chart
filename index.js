@@ -26,5 +26,13 @@ function createChart(e) {
             const left = filteredArray[0].offsetLeft;
         }
 
+        if (endDay.endsWith("1/2")) {
+            const filteredArray = dayArray.filter(day => day.textContent == endDay.slice(0, -1));
+            const left = filteredArray[0].offsetLeft + filteredArray[0].offsetwidth / 2;
+        } else {
+            const filteredArray = dayArray.filter(day => day,textContent == endDay);
+            const width = filteredArray[0].offsetLeft + filteredArray[0].offsetwidth - left;
+        }
+
     })
 }
