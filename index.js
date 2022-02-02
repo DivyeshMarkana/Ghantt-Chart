@@ -18,20 +18,22 @@ function createChart(e) {
         let left = 0;
         let width = 0;
 
-        if (startDay.endsWith("1/2")) {
+        if (startDay.endsWith("½")) {
             const filteredArray = dayArray.filter(day => day.textContent == startDay.slice(0, -1));
-            const left = filteredArray[0].offsetLeft + filteredArray[0].offsetwidth / 2;
+             left = filteredArray[0].offsetLeft + filteredArray[0].offsetWidth / 2;
         } else {
             const filteredArray = dayArray.filter(day => day.textContent == startDay);
-            const left = filteredArray[0].offsetLeft;
+             left = filteredArray[0].offsetLeft;
         }
 
-        if (endDay.endsWith("1/2")) {
+        if (endDay.endsWith("½")) {
             const filteredArray = dayArray.filter(day => day.textContent == endDay.slice(0, -1));
-            const width = filteredArray[0].offsetLeft + filteredArray[0].offsetwidth / 2;
+             width = filteredArray[0].offsetLeft + filteredArray[0].offsetWidth / 2 - left;
+            
         } else {
-            const filteredArray = dayArray.filter(day => day,textContent == endDay);
-            const width = filteredArray[0].offsetLeft + filteredArray[0].offsetwidth - left;
+            const filteredArray = dayArray.filter(day => day.textContent == endDay);
+             width = filteredArray[0].offsetLeft + filteredArray[0].offsetWidth - left;
+            
         }
 
 
