@@ -28,10 +28,19 @@ function createChart(e) {
 
         if (endDay.endsWith("1/2")) {
             const filteredArray = dayArray.filter(day => day.textContent == endDay.slice(0, -1));
-            const left = filteredArray[0].offsetLeft + filteredArray[0].offsetwidth / 2;
+            const width = filteredArray[0].offsetLeft + filteredArray[0].offsetwidth / 2;
         } else {
             const filteredArray = dayArray.filter(day => day,textContent == endDay);
             const width = filteredArray[0].offsetLeft + filteredArray[0].offsetwidth - left;
+        }
+
+
+        el.style.left = `${left}px`;
+        el.style.width = `${width}px`;
+
+        if (e.type == "load") {
+            el.style.backgroundColor = el.dataset.color;
+            el.style.opacity = 1;
         }
 
     })
